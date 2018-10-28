@@ -1,0 +1,102 @@
+Index(['State', 'Account length', 'Area code', 'International plan',
+       'Voice mail plan', 'Number vmail messages', 'Total day minutes',
+       'Total day calls', 'Total day charge', 'Total eve minutes',
+       'Total eve calls', 'Total eve charge', 'Total night minutes',
+       'Total night calls', 'Total night charge', 'Total intl minutes',
+       'Total intl calls', 'Total intl charge', 'Customer service calls',
+       'Churn'],
+      dtype='object')
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3333 entries, 0 to 3332
+Data columns (total 20 columns):
+State                     3333 non-null object
+Account length            3333 non-null int64
+Area code                 3333 non-null int64
+International plan        3333 non-null bool
+Voice mail plan           3333 non-null object
+Number vmail messages     3333 non-null int64
+Total day minutes         3333 non-null float64
+Total day calls           3333 non-null int64
+Total day charge          3333 non-null float64
+Total eve minutes         3333 non-null float64
+Total eve calls           3333 non-null int64
+Total eve charge          3333 non-null float64
+Total night minutes       3333 non-null float64
+Total night calls         3333 non-null int64
+Total night charge        3333 non-null float64
+Total intl minutes        3333 non-null float64
+Total intl calls          3333 non-null int64
+Total intl charge         3333 non-null float64
+Customer service calls    3333 non-null int64
+Churn                     3333 non-null int64
+dtypes: bool(1), float64(8), int64(9), object(2)
+memory usage: 498.1+ KB
+None
+  State  Account length  ...    Customer service calls  Churn
+0    KS             128  ...                         1      0
+1    OH             107  ...                         1      0
+2    NJ             137  ...                         0      0
+3    OH              84  ...                         2      0
+4    OK              75  ...                         3      0
+
+[5 rows x 20 columns]
+     State  Account length  ...    Customer service calls  Churn
+365     CO             154  ...                         1      1
+985     NY              64  ...                         1      1
+2594    OH             115  ...                         1      1
+156     OH              83  ...                         0      1
+605     MO             112  ...                         2      1
+
+[5 rows x 20 columns]
+State                        WY
+Account length              243
+Area code                   510
+International plan         True
+Voice mail plan             Yes
+Number vmail messages        51
+Total day minutes         350.8
+Total day calls             165
+Total day charge          59.64
+Total eve minutes         363.7
+Total eve calls             170
+Total eve charge          30.91
+Total night minutes         395
+Total night calls           175
+Total night charge        17.77
+Total intl minutes           20
+Total intl calls             20
+Total intl charge           5.4
+Customer service calls        9
+Churn                         1
+dtype: object
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 16719 entries, 0 to 16718
+Data columns (total 16 columns):
+Name               16717 non-null object
+Platform           16719 non-null object
+Year_of_Release    16450 non-null float64
+Genre              16717 non-null object
+Publisher          16665 non-null object
+NA_Sales           16719 non-null float64
+EU_Sales           16719 non-null float64
+JP_Sales           16719 non-null float64
+Other_Sales        16719 non-null float64
+Global_Sales       16719 non-null float64
+Critic_Score       8137 non-null float64
+Critic_Count       8137 non-null float64
+User_Score         10015 non-null object
+User_Count         7590 non-null float64
+Developer          10096 non-null object
+Rating             9950 non-null object
+dtypes: float64(9), object(7)
+memory usage: 2.0+ MB
+(6825, 16)
+                    Name Platform  ...    User_Count Rating
+0             Wii Sports      Wii  ...           322      E
+2         Mario Kart Wii      Wii  ...           709      E
+3      Wii Sports Resort      Wii  ...           192      E
+6  New Super Mario Bros.       DS  ...           431      E
+7               Wii Play      Wii  ...           129      E
+
+[5 rows x 10 columns]

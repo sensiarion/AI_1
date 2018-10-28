@@ -1,0 +1,15 @@
+awk -F ',' '
+BEGIN { idx = 0 }
+NR == 1 { 
+# bash -s <
+    for (i = 1; i <= NF; i++) {
+        if ($i == "Global_Sales") {
+			idx = i 
+		}
+    }   
+	if ($idx == 0) {
+		exit
+	}
+} 
+{ print $idx }
+' ../../../../data/video_games_sales.csv | less
