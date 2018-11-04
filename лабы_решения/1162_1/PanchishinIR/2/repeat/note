@@ -3,7 +3,7 @@ BEGIN { idx = 0 }
 NR == 1 { 
 # bash -s <
     for (i = 1; i <= NF; i++) {
-        if ($i == "Global_Sales") {
+        if ($i == "International plan") {
 			idx = i 
 		}
     }   
@@ -12,4 +12,4 @@ NR == 1 {
 	}
 } 
 { print $idx }
-' ../../../../data/video_games_sales.csv | less
+' ../../../../data/telecom_churn.csv | less
