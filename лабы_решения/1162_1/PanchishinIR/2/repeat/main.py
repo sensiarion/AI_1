@@ -51,7 +51,7 @@ sales_df.groupby('Year_of_Release').sum().plot()
 
 cols = ['Global_Sales', 'Critic_Score', 'Critic_Count', 'User_Score', 'User_Count']
 sns_plot = sns.pairplot(df[cols])
-sns_plot.savefig('output/pairplot.png')
+#sns_plot.savefig('output/pairplot.png')
 
 plt.figure('1')
 sns.distplot(df.Critic_Score)

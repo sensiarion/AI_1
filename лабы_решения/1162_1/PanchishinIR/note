@@ -1,0 +1,97 @@
+### Диаграммы
+
+## matplotlib.pyplot as plt
+
+plt.figure()
+
+plt.show()
+
+## seaborn as sns
+
+sns.countplot(x='Sex', hue='Survived', data=train)
+
+fig, axes = plt.subplots(nrows=2, ncols=2)
+for idx, feat in enumerate(features):
+    row = math.floor(idx / 2)
+    col = idx % 2
+    sns.boxplot(x='Survived', y=feat, data=train, ax=axes[row, col])
+    axes[row, col].set_xlabel('Survived')
+    axes[row, col].set_ylabel(feat)
+
+sns.pairplot(train.dropna()[['Age', 'SibSp', 'Parch', 'Fare']])
+
+sns.heatmap(train[features].corr())
+
+sns.violinplot(x='Survived', y='Fare', data=train, ax=axes[1])
+
+p = sns.distplot(df[df.Survived==False].Age)
+sns.jointplot(df.Pclass, df.Age)
+
+## pandas as pd
+
+train['Pclass'].value_counts().plot(kind='bar', label='Pclass')
+
+train[features].hist() # колич. распред.
+survived["Age"].plot.hist(alpha=0.5, color='red', bins=50)
+died["Age"].plot.hist(alpha=0.5, color='blue', bins=50)
+plt.legend(['Survived', 'Died'])
+
+### Статистика
+
+# сводка
+train.groupby(['Sex'])[col_to_show].describe(percentiles=[.5]))
+train.groupby(['Sex'])[col_to_show].agg([np.mean, np.std, np.min, np.max])
+# сводная таблица
+train.pivot_table(['Fare', 'Age', 'Pclass'], ['Sex'], aggfunc='mean')
+
+# таблица сопряженности
+# совместное распределение двух переменных для исследования связи между ними
+# частота совместного появления соответствующих значений на пересечениях
+pd.crosstab(train['Pclass'], train['Sex'], normalize=True)
+
+### Обработка
+
+# изменение
+d = {1 : 'Yes', 0 : 'No'}
+df['Survived'].map(d)
+df.replace({'Survived': d})
+
+# выделение
+train[(train['Age'] > 18) & (train['Age'] < 25)]['Survived'].mean()
+df.loc
+df.iloc
+
+# вставка
+total_relatives = train['SibSp'] + train['Parch']
+train.insert(len(train.columns), 'Trelatives', total_relatives)
+
+# избавление от числовой зависимости или для работы с неколич. признаками
+dummies = pd.get_dummies(df[column_name], prefix=column_name)
+df = pd.concat([df, dummies], axis=1)
+data = pd.get_dummies(data, columns=['Pclass', 'Sex', 'Embarked'])
+
+# разбиение на интервалы
+def process_age(df, cut_points, label_names):
+    df["Age"] = df["Age"].fillna(-0.5)
+    df["Age_categories"] = pd.cut(df["Age"], cut_points, labels=label_names)
+    return df
+cut_points = [-1, 0, 5, 12, 18, 35, 60, 100]
+label_names = ["Missing", "Infant", "Child", "Teenager", "Young Adult", "Adult", "Senior"]
+
+# удаление
+df.drop(['Ticket', 'Cabin'], axis=1)
+
+# пропуски
+data.isna().sum()
+
+### Обучение
+
+# from sklearn.model_selection import train_test_split
+train_X, test_X, train_y, test_y = train_test_split(
+    all_X, all_y, test_size=0.2, random_state=0)
+# from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression()
+lr.fit(train_X, train_y)
+predictions = lr.predict(test_X)
+# from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(test_y, predictions)

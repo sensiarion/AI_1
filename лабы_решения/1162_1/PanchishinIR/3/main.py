@@ -111,21 +111,21 @@ sns.countplot(x='Embarked', hue='Survived', data=train)
 
 ###
 
-from sklearn.manifold import TSNE
-from sklearn.preprocessing import StandardScaler
-
-X = train.drop(['PassengerId', 'Cabin', 'Ticket', 'Name'], axis=1)
-X.Sex = pd.factorize(X.Sex)[0]
-X.Embarked = pd.factorize(X.Embarked)[0]
-X = X.dropna()
-
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-tsne = TSNE(random_state=17)
-tsne_representation = tsne.fit_transform(X_scaled)
-
-plt.figure()
-plt.scatter(tsne_representation[:, 0], tsne_representation[:, 1], c=train['Survived'].map({0: 'blue', 1: 'orange'}));
+#from sklearn.manifold import TSNE
+#from sklearn.preprocessing import StandardScaler
+#
+#X = train.drop(['PassengerId', 'Cabin', 'Ticket', 'Name'], axis=1)
+#X.Sex = pd.factorize(X.Sex)[0]
+#X.Embarked = pd.factorize(X.Embarked)[0]
+#X = X.dropna()
+#
+#scaler = StandardScaler()
+#X_scaled = scaler.fit_transform(X)
+#
+#tsne = TSNE(random_state=17)
+#tsne_representation = tsne.fit_transform(X_scaled)
+#
+#plt.figure()
+#plt.scatter(tsne_representation[:, 0], tsne_representation[:, 1], c=train['Survived'].map({0: 'blue', 1: 'orange'}));
 
 plt.show()
