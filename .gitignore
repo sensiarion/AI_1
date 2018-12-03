@@ -105,3 +105,13 @@ venv.bak/
 
 # Pycharm
 .idea
+
+# keras / tensorflow checkpoints
+*save_point*
+*save point*
+*checkpoint*
+*.h5
+*.hdfs5
+*.hdf5
+*.hdf
+*.hdfs
